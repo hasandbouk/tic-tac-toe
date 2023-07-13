@@ -11,18 +11,44 @@ body {
     gap: 20px
 }
 
+.score-display{
+    display: flex;
+    gap: 100px;
+}
+
+.player1-score {
+    display: flex;
+    flex-direction: column;
+}
+.player2-score{
+    display: flex;
+    flex-direction: column;
+}
+.display-player1-score {
+    background-color: grey;
+    text-align: center;
+}
+.display-player2-score {
+    background-color: grey;
+    text-align: center;
+}
 .board {
     display: flex;
-    
     flex-wrap: wrap;
     width: 300px;
     height: 300px;
+    font-family: 'Permanent Marker';
 }
 
 .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 100px;
     border: 1px solid black;
+    font-size: 99px;
+    cursor: pointer;
 }
 
 .cell:nth-child(1){
