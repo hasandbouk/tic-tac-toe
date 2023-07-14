@@ -12,6 +12,10 @@ const player2NameInput = document.querySelector(".player-2-name");
 const player1Name = player1NameInput.value;
 const player2Name = player2NameInput.value;
 const startButton = document.getElementById("startButton");
+const player1ScoreDisplay = document.getElementById("player1Score");
+const player2ScoreDisplay = document.getElementById("player2Score");
+const btn = document.querySelector("#resetButton");
+
 
 //TODO Add functionality to startButton to retreive the player names from the input
 
@@ -39,16 +43,37 @@ function addTic(e) {
     fullCells.push(cell.id);
     const winner = checkWin();
     if (winner === "x") {
-        score1 = score1 + 1;
+        score1++;
+        updateScoreboard()
+        //updateScoreboard() //scoreboard not updating
         //TODO create screen overlay with congrats player 1. Do alert for now
-        alert("Congrats, " + ${player1NameInput} + "! You won!");
-        //TODO Player name not showing!
+        alert("Congrats, Player 1! You won!");
+        resetGame()
     }
     if (winner === "o") {
-        alert("Congrats " + player2NameInput + "!You won!")
+        score2++;
+        updateScoreboard()
+        //updateScoreboard() //scoreboard not updating
+        alert("Congrats Player 2 !You won!")
+        resetGame()
+    }else if (fullCells.length === 9) {
+        alert("it's a tie")
+        resetGame()
     }
 }
 
+
+// make reset game function after every win or tie
+function resetGame() {
+    fullCells = [];
+    currentPlayer = "x";
+    p1Sequence = [];
+    p2Sequence = [];
+    cell_elements.forEach((cell) => {
+        cell.innerText = "";
+    });
+}
+btn.addEventListener('click', resetGame)
 
 
 let fullCells = [];
@@ -73,4 +98,9 @@ function checkWin() {
             return "o";
         }
     }
+}
+//make scoreboard update after every win
+function updateScoreboard() {
+    player1ScoreDisplay.innerText = score1;
+    player2ScoreDisplay.innerText = score2;
 }
