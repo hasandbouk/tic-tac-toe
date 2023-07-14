@@ -12,8 +12,9 @@ const player2NameInput = document.querySelector(".player-2-name");
 const player1Name = player1NameInput.value;
 const player2Name = player2NameInput.value;
 const startButton = document.getElementById("startButton");
-const player1ScoreDisplay = document.getElementById("player1Score");
-const player2ScoreDisplay = document.getElementById("player2Score");
+const player1ScoreDisplay = document.getElementById("player1-score");
+console.log(player1ScoreDisplay)
+const player2ScoreDisplay = document.getElementById("player2-score");
 const btn = document.querySelector("#resetButton");
 
 
