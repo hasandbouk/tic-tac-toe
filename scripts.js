@@ -11,6 +11,9 @@ const player1NameInput = document.querySelector(".player-1-name");
 const player2NameInput = document.querySelector(".player-2-name");
 const player1Name = player1NameInput.value;
 const player2Name = player2NameInput.value;
+const startButton = document.getElementById("startButton");
+
+//TODO Add functionality to startButton to retreive the player names from the input
 
 
 cell_elements.forEach((cell) => {
@@ -36,9 +39,13 @@ function addTic(e) {
     fullCells.push(cell.id);
     const winner = checkWin();
     if (winner === "x") {
-        score1 = score1 +1;
-        //TODO create screen overlay with congrats player 1 do alert for now
-        alert("Congrats, " + player1Name + "! You won!");
+        score1 = score1 + 1;
+        //TODO create screen overlay with congrats player 1. Do alert for now
+        alert("Congrats, " + ${player1NameInput} + "! You won!");
+        //TODO Player name not showing!
+    }
+    if (winner === "o") {
+        alert("Congrats " + player2NameInput + "!You won!")
     }
 }
 
@@ -62,7 +69,7 @@ function checkWin() {
         if (p1Sequence.includes(a) && p1Sequence.includes(b) && p1Sequence.includes(c)) {
             return "x";
         }
-        if (p2Sequence.includes(a) && p2Sequence.includes(b) && p2Sequence.includes(c)){
+        if (p2Sequence.includes(a) && p2Sequence.includes(b) && p2Sequence.includes(c)) {
             return "o";
         }
     }
