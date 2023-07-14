@@ -7,6 +7,10 @@ let score1 = 0;
 let score2 = 0;
 let p1Sequence = [];
 let p2Sequence = [];
+const player1NameInput = document.querySelector(".player-1-name");
+const player2NameInput = document.querySelector(".player-2-name");
+const player1Name = player1NameInput.value;
+const player2Name = player2NameInput.value;
 
 
 cell_elements.forEach((cell) => {
@@ -29,10 +33,13 @@ function addTic(e) {
         currentPlayer = "x";
     }
 
-    // cell.innerText = currentPlayer;
-    fullCells.push(cell.id)
-    // currentPlayer = currentPlayer === "x"? "o":"x" 
-    // add check winner formula down
+    fullCells.push(cell.id);
+    const winner = checkWin();
+    if (winner === "x") {
+        score1 = score1 +1;
+        //TODO create screen overlay with congrats player 1 do alert for now
+        alert("Congrats, " + player1Name + "! You won!");
+    }
 }
 
 
