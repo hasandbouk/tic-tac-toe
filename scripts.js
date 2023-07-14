@@ -35,19 +35,28 @@ function addTic(e) {
     // add check winner formula down
 }
 
+
+
 let fullCells = [];
-//check for a winner
-//game state
-//to restart the game with the score
-
-const winningSequence = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-];
-
+//check if any of the sequences above = any sequence of the array of arrays below
+function checkWin() {
+    const winningSequence = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+    ];
+    for (let sequence of winningSequence) {
+        const [a, b, c] = sequence;
+        if (p1Sequence.includes(a) && p1Sequence.includes(b) && p1Sequence.includes(c)) {
+            return "x";
+        }
+        if (p2Sequence.includes(a) && p2Sequence.includes(b) && p2Sequence.includes(c)){
+            return "o";
+        }
+    }
+}
